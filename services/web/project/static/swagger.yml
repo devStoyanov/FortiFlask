@@ -1,0 +1,255 @@
+openapi: 3.0.3
+info:
+  title: Flask Contacts API
+  description: API documentation for Contacts
+  version: 1.0.11
+  contact:
+    email: apiteam@contactsapi.com
+tags:
+  - name: contacts
+    description: Operations related to contacts
+
+paths:
+  /test-user:
+    post:
+      operationId: create.contact
+      tags:
+        - contacts
+      summary: "Create a user"
+      requestBody:
+          description: "User to create"
+          content:
+            application/json:
+              schema:
+                x-body-name: "user" 
+                $ref: "#/components/schemas/User"       
+      responses:
+        '200':
+          description: "Successfully created user" 
+
+  /test-user/login:
+      post:
+        operationId: log_in_user
+        tags:
+         - contacts
+        summary: "Login user"
+        requestBody:
+            description: "User to login"
+            content:
+              application/json:
+                schema:
+                  x-body-name: "user"
+                  $ref: "#/components/schemas/User"
+        responses:
+          '200':
+            description: "Successfully created user" 
+
+
+
+  /test-contacts:
+    get:
+      tags:
+        - contacts
+      summary: List all contacts
+      operationId: listContacts
+      responses:
+        '200':
+          description: Create a new contact in database
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Contact'
+
+    post:
+      operationId: create.contact
+      tags:
+        - contacts
+      summary: "Create a contact"
+      requestBody:
+          description: "Contact to create"
+          content:
+            application/json:
+              schema:
+                x-body-name: "contact" 
+                $ref: "#/components/schemas/ContactFields"       
+      responses:
+        '200':
+          description: "Successfully created contact" 
+  
+  /test-contacts/{id}:
+    get:
+      operationId: update.contact
+      tags:
+        - contacts
+      parameters:
+       - name: id
+         in: path
+         schema:
+           type: integer
+           required: true
+           description: Contact id
+      summary: "Get contact by id"         
+      responses:
+        '200':
+          description: "Successfully read contact"
+    put:
+      tags:
+        - contacts
+      parameters:
+       - name: id
+         in: path
+         schema:
+           type: integer
+           required: true
+           description: Contact id
+      summary: Update contact by id
+      responses:
+        '200':
+          description: "Successfully updated contact"
+      requestBody:
+          description: "Contact to update"
+          content:
+            application/json:
+              schema:
+                x-body-name: "contact" 
+                $ref: "#/components/schemas/ContactFields"  
+    delete:
+      tags:
+        - contacts
+      parameters:
+       - name: id
+         in: path
+         schema:
+           type: integer
+           required: true
+           description: Contact id
+      summary: "Delete contact by id"         
+      responses:
+        '200':
+          description: "Successfully deleted contact"
+
+
+
+  
+components:
+  schemas:
+    Contact:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 	The unique identifier of the contact
+           
+        creator_id:
+          type: integer
+          description: The unique identifier of the user the contact was created by
+           
+        is_organization:
+          type: boolean
+          description: Indicator of whether or not this contact refers to an organization or an individua.
+           
+        name:
+          type: string
+          description: Name of the contact, if the contact is an organization
+           
+        first_name:
+          type: string
+          description: First name of the contact.
+          
+        last_name:
+          type: string
+          description: Last name of the contact.
+          
+        title:
+          type: string
+          description: The contact's job title
+          
+        email:
+          type: string
+          description: The contact's email address.
+          
+        mobile:
+          type: integer
+          description: The contact's mobile phone number.
+          
+        address:
+          type: string
+          description: The contact's address
+          
+        description:
+          type: string
+          description: The contact's description
+        
+        tags:
+          type: string
+          description: An array of tags for the contact
+          
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    ContactFields:
+      type: object
+      properties:
+
+        is_organization:
+          type: boolean
+          description: Indicator of whether or not this contact refers to an organization or an individua.
+           
+        name:
+          type: string
+          description: Name of the contact, if the contact is an organization
+           
+        first_name:
+          type: string
+          description: First name of the contact.
+          
+        last_name:
+          type: string
+          description: Last name of the contact.
+          
+        title:
+          type: string
+          description: The contact's job title
+          
+        email:
+          type: string
+          description: The contact's email address.
+          
+        mobile:
+          type: integer
+          description: The contact's mobile phone number.
+          
+        address:
+          type: string
+          description: The contact's address
+          
+        description:
+          type: string
+          description: The contact's description
+        
+        tags:
+          type: string
+          description: An array of tags for the contact
+    
+    User:
+      type: object
+      properties:
+
+        username:
+          type: string
+          required: true
+
+        password:
+          type: integer
+          required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

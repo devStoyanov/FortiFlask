@@ -1,0 +1,8 @@
+.env.prod
+.env.prod.db
+.env.dev
+Dockerfile.dev
+docker-compose.yml
+entrypoint.sh
+venv
+__pycache__

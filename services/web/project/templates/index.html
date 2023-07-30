@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My API Frontend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            
+        }
+        .container {
+            text-align: center; 
+            margin-top: 50px;
+        }
+        .api-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .api-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #24de9d;
+            color: rgba(7, 1, 1, 0.911);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flask API</h1>
+        <p>Explore our API documentation by clicking the button below:</p>
+        <a href="{{ url_for('swagger_ui.show') }}" target="_blank">
+            <button class="api-button">API Documentation</button>
+        </a>
+    </div>
+</body>
+</html>
