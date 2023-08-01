@@ -76,4 +76,4 @@ jobs:
             docker pull devstoyanov/python-app:${{ steps.prep.outputs.BUILD_ID }}
             echo "${{ secrets.ENV_PROD }}" > .env.prod
             echo "${{ secrets.ENV_PROD_DB }}" > .env.prod.db
-            DOCKER_IMAGE_TAG=${{ steps.prep.outputs.BUILD_ID }} docker-compose -f docker-compose.prod.yml  up -d --build --no-cache
+            DOCKER_IMAGE_TAG=${{ steps.prep.outputs.BUILD_ID }} docker-compose -f docker-compose.prod.yml --no-cache up -d --build
