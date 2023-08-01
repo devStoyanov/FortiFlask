@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "${{ secrets.ENV_PROD }}" > .env.prod
           echo "${{ secrets.ENV_PROD_DB }}" > .env.prod.db
-          docker-compose -f docker-compose.prod.yml --build
+          docker-compose -f docker-compose.prod.yml build
           docker tag fortiflask_web:latest $IMAGE:${{ steps.prep.outputs.BUILD_ID }}
           docker push $IMAGE:${{ steps.prep.outputs.BUILD_ID }}
         env:
