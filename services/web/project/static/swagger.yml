@@ -4,7 +4,7 @@ info:
   description: API documentation for Contacts
   version: 1.0.11
   contact:
-    email: apiteam@contactsapi.com
+    email: stanislav614@gmail.com
 tags:
   - name: contacts
     description: Operations related to contacts
@@ -26,6 +26,7 @@ paths:
       responses:
         '200':
           description: "Successfully created user" 
+
 
   /test-user/login:
       post:
@@ -61,6 +62,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Contact'
+      security:
+        - Authorization: []
 
     post:
       operationId: create.contact
@@ -77,6 +80,8 @@ paths:
       responses:
         '200':
           description: "Successfully created contact" 
+      security:
+        - Authorization: []
   
   /test-contacts/{id}:
     get:
@@ -94,6 +99,9 @@ paths:
       responses:
         '200':
           description: "Successfully read contact"
+      security:
+        - Authorization: []
+
     put:
       tags:
         - contacts
@@ -115,6 +123,9 @@ paths:
               schema:
                 x-body-name: "contact" 
                 $ref: "#/components/schemas/ContactFields"  
+      security:
+        - Authorization: []
+
     delete:
       tags:
         - contacts
@@ -129,6 +140,9 @@ paths:
       responses:
         '200':
           description: "Successfully deleted contact"
+
+      security:
+        - Authorization: []
 
 
 
@@ -239,17 +253,23 @@ components:
     
     User:
       type: object
+      required:
+        - username
+        - password
       properties:
 
         username:
           type: string
-          required: true
-
         password:
-          type: integer
-          required: true
+          type: string
+          
   securitySchemes:
-    BearerAuth:
+    Authorization:
       type: http
       scheme: bearer
       bearerFormat: JWT
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+
+

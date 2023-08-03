@@ -6,6 +6,7 @@ from datetime import datetime
 db = SQLAlchemy()
 
 
+# Use to initialize the database.
 def init_db(app):
     db.init_app(app)
 
