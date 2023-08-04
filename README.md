@@ -89,7 +89,7 @@ In FortiFlask folder run:
 
 # Continuous Deployment (CD)
 
-FortiFlask use GitHub Actions for its CD pipelines. The pipeline is configured to automatically build , push to repository, and deploy the application image to Vm  whenever changes are pushed to the main branch. The CI/CD process includes the following steps:
+FortiFlask use GitHub Actions for its CD pipelines. The pipeline is configured to automatically build , push to repository, and deploy the application image to Vm  whenever changes are pushed to the main branch. The CD process includes the following steps:
 * Generate build id which will be used to tag an image using env variable, GITHUB_SHA
 * Login to Docker Hub using docker/login-action@v2 action with two secrets.
 * Build, Tag, Push an image to the repository
