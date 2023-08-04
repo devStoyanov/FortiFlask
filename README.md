@@ -1,6 +1,6 @@
 # Overview
 
-Forti-flask is a RESTful API service that provides several endpoints  for interacting with data. It is designed to be secure and utilizes JWT token-based authentication. The app is built with Python and Flask, using Pydantic for data validation, PostgreSQL for the database,  Nginx as a reverse proxy server and WSGI as web servers to forward requests to web application. The entire app is containerized using Docker for easy deployment and scalability.
+Forti-flask is a RESTful API service that provides several endpoints  for interacting with data. It is designed to be secure and utilizes JWT token-based authentication. The app is built with Python and Flask, using Pydantic for data validation, PostgreSQL for the database,  Nginx as a reverse proxy server and WSGI as web server to forward requests to web application. The entire app is containerized using Docker for easy deployment and scalability.
 
 ## Table of Contents
 
