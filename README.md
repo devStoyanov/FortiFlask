@@ -22,31 +22,30 @@ Forti-flask is a RESTful API service that provides several endpoints  for intera
 * WSGI as web server to forward requests to web application
 
 # Technologies
-Python
-Flask
-Pydantic
-PostgreSQL
-Nginx
-WSGI
-Docker
-Docker Compose
+* Flask
+* Pydantic
+* PostgreSQL
+* Nginx
+* WSGI
+* Docker
+* Docker Compose
 
 # Installation
 
 Before running the app, ensure you have the following installed on your machine:
 
-Docker
-Docker Compose 
+- Docker
+- Docker Compose 
 
-Running the App
+* Running the App
 
-Clone this repository to your local machine
+- Clone this repository to your local machine
 
 The app is configured to work with .env. files,
 you should provide them by yourself.
 In FortiFlask folder create .env.prod and env.prod.db:
 
-.env.prod content:
+- .env.prod content:
 
 FLASK_APP=project/__init__.py
 FLASK_DEBUG=0
@@ -57,31 +56,34 @@ DATABASE=postgres
 APP_FOLDER=/home/app/web
 FLASK_SECRET_KEY=your_secret_key_here
 
-.env.prod.db content:
+- .env.prod.db content:
 
 POSTGRES_USER=your_postgres_username
 POSTGRES_PASSWORD=your_postgres_password
 POSTGRES_DB=your_postgres_db_name
 
 
-Start the application using Docker Compose:
-In FortiFlask folder run docker-compose -f docker-compose.prod.yml up -d --build
-This command will build and start application containers in detached mode.
+* Start the application using Docker Compose:
+In FortiFlask folder run: 
+- docker-compose -f docker-compose.prod.yml up -d --build
+- This command will build and start application containers in detached mode.
 
 
-To create the tables in database in FortiFlask directory run:
-docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
+* To create the tables in database in FortiFlask directory run:
+- docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
 
-You can check if the tables are created successfully by running:
-docker-compose exec -f docker-compose.prod.yml db psql --username=your_postgres_username --dbname=your_postgres_db_name
-In psql type \l to List the databases
-type \dt to List the tables there should be two tables user and contacts
+* You can check if the tables are created successfully by running:
+- docker-compose exec -f docker-compose.prod.yml db psql --username=your_postgres_username --dbname=your_postgres_db_name
+* In psql type: 
+- \l to List the databases
+- \dt to List the tables there should be two tables user and contacts
 
-If you have permission problems with entrypoint.prod.sh in FortiFlask directory run: chmod +x services/web/entrypoint.prod.sh
+* If you have permission problems with entrypoint.prod.sh in FortiFlask directory run: 
+- chmod +x services/web/entrypoint.prod.sh
 
 # Documentation
 
-Swagger documentation is available in http://localhost:1337
+* Swagger documentation is available in http://localhost:1337
 
 
 # CI/CD
