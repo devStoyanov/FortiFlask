@@ -79,7 +79,9 @@ Before running the app, ensure you have the following installed on your machine:
 
 * FATAL:  database "your_postgres_db_name" does not exist  
 
-        docker-compose down -v to remove the volumes along with the containers
+        docker-compose down -v  
+
+        To remove the volumes along with the containers
 
     Then, re-build the images, run the command to create the tables again:  
 
@@ -94,7 +96,7 @@ Before running the app, ensure you have the following installed on your machine:
     \dt "List the tables, there should be two tables "user" and "contacts""
 
     If you have permission problems with entrypoint.prod.sh in FortiFlask directory run:  
-    
+
         chmod +x services/web/entrypoint.prod.sh
 
 # Documentation
