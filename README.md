@@ -36,8 +36,9 @@ Before running the app, ensure you have the following installed on your machine:
 
 * Docker
 * Docker Compose 
-
-
+* In order to use psql you need to have it installed locally on your machine.   
+  You can follow the link for more information on installition process depending on your operation system  
+  https://www.postgresql.org/download/
 
 First clone this repository to your local machine run: 
 git clone https://github.com/devStoyanov/FortiFlask.git
