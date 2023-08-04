@@ -69,25 +69,32 @@ Before running the app, ensure you have the following installed on your machine:
     In FortiFlask folder run:  
 
         docker-compose -f docker-compose.prod.yml up -d --build
-          
+
     This command will build and start application containers in detached mode.
 
 
 * To create the tables in database in FortiFlask directory run:  
+
         docker-compose -f docker-compose.prod.yml exec web python manage.py create_db  
 
 * FATAL:  database "your_postgres_db_name" does not exist  
+
         docker-compose down -v to remove the volumes along with the containers
+
     Then, re-build the images, run the command to create the tables again:  
+
         docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
   
-* You can check if the tables are created successfully by running:  
-        docker-compose -f docker-compose.prod.yml exec db psql--username=your_postgres_username --dbname=your_postgres_db_name  
+* You can check if the tables are created successfully by running: 
+
+        docker-compose -f docker-compose.prod.yml exec db psql--username=your_postgres_username --dbname=your_postgres_db_name
+
 * In psql type:   
     \l "List the databases"  
     \dt "List the tables, there should be two tables "user" and "contacts""
 
     If you have permission problems with entrypoint.prod.sh in FortiFlask directory run:  
+    
         chmod +x services/web/entrypoint.prod.sh
 
 # Documentation
