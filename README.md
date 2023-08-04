@@ -79,7 +79,7 @@ In FortiFlask folder run:
   docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
   
 * You can check if the tables are created successfully by running:  
-  docker-compose -f docker-compose.prod.yml exec db psql --username=your_postgres_username --dbname=your_postgres_db_name  
+  docker-compose -f docker-compose.prod.yml exec db psql--username=your_postgres_username --dbname=your_postgres_db_name  
 * In psql type:   
   \l "List the databases"  
   \dt "List the tables, there should be two tables "user" and "contacts""
