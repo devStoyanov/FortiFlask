@@ -89,7 +89,7 @@ Before running the app, ensure you have the following installed on your machine:
 
         docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
   
-* You can check if the tables are created successfully by running: 
+* You can check if tables are created successfully by running: 
 
         docker-compose -f docker-compose.prod.yml exec db psql--username=your_postgres_username --dbname=your_postgres_db_name
 
