@@ -74,7 +74,7 @@ In FortiFlask folder run:
 * To create the tables in database in FortiFlask directory run:  
   docker-compose -f docker-compose.prod.yml exec web python manage.py create_db  
 
-* FATAL:  database "hello_flask_dev" does not exist  
+* FATAL:  database "your_postgres_db_name" does not exist  
   Run docker-compose down -v to remove the volumes along with the containers. Then, re-build the images, run the command to create the tables again:  
   docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
   
