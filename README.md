@@ -49,14 +49,14 @@ Before running the app, ensure you have the following installed on your machine:
 
 * .env.prod content:
 
-    FLASK_APP=project/__init__.py  
-    FLASK_DEBUG=0  
-    DATABASE_URL=postgresql://your_postgres_username:your_postgres_password@db:5432/your_db_name  
-    SQL_HOST=db  
-    SQL_PORT=5432  
-    DATABASE=postgres  
-    APP_FOLDER=/home/app/web  
-    FLASK_SECRET_KEY=your_secret_key_here
+        FLASK_APP=project/__init__.py  
+        FLASK_DEBUG=0  
+        DATABASE_URL=postgresql://your_postgres_username:your_postgres_password@db:5432/your_db_name  
+        SQL_HOST=db  
+        SQL_PORT=5432  
+        DATABASE=postgres  
+        APP_FOLDER=/home/app/web  
+        FLASK_SECRET_KEY=your_secret_key_here
 
 * .env.prod.db content:
 
