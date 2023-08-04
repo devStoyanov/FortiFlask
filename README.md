@@ -45,7 +45,7 @@ git clone https://github.com/devStoyanov/FortiFlask.git
 
 The app is configured to work with .env. files,
 you should provide them by yourself.  
-In FortiFlask folder create .env.prod and env.prod.db:
+In FortiFlask folder create .env.prod and env.prod.db
 
 * .env.prod content:
 
