@@ -8,7 +8,7 @@ Forti-flask is a RESTful API service that provides several endpoints  for intera
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Documentation](#documentation)
-- [ContinuousDeployment(CD)](#continuousdeployment(cd))
+- [Continuous Deployment (CD)](#continuousdeployment(cd))
 - [License](#license)
 
 
