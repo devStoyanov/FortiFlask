@@ -49,23 +49,25 @@ def data():
         contacts = request.json
 
         try:
-            contact = ContactsData(**contacts)
+            contact_data = ContactsData(**contacts)
         except ValidationError as e:
             return jsonify(e.errors()), 400
 
         new_contact = Contacts(
             creator_id=user_id,
-            is_organization=contacts["is_organization"],
-            name=contacts["name"],
-            first_name=contacts["first_name"],
-            last_name=contacts["last_name"],
-            title=contacts["title"],
-            email=contacts["email"],
-            address=contacts["address"],
-            description=contacts["description"],
-            tags=contacts["tags"],
+            is_organization=contact_data.is_organization,
+            name=contact_data.name,
+            first_name=contact_data.first_name,
+            last_name=contact_data.last_name,
+            title=contact_data.title,
+            email=contact_data.email,
+            mobile=contact_data.mobile,
+            address=contact_data.address,
+            description=contact_data.description,
+            tags=contact_data.tags,
         )
 
+        print(new_contact)
         db.session.add(new_contact)
         db.session.commit()
 
@@ -149,16 +151,16 @@ def update_note(id):
             return {"message": f"No contact with id: {id}"}, 404
 
         # Update the existing contact with given information as json request
-        contact.is_organization = data["is_organization"]
-        contact.name = data["name"]
-        contact.first_name = data["first_name"]
-        contact.last_name = data["last_name"]
-        contact.title = data["title"]
-        contact.email = data["email"]
-        contact.mobile = data["mobile"]
-        contact.address = data["address"]
-        contact.description = data["description"]
-        contact.tags = data["tags"]
+        contact.is_organization = contact_data.is_organization
+        contact.name = contact_data.name
+        contact.first_name = contact_data.first_name
+        contact.last_name = contact_data.last_name
+        contact.title = contact_data.title
+        contact.email = contact_data.email
+        contact.mobile = contact_data.mobile
+        contact.address = contact_data.address
+        contact.description = contact_data.description
+        contact.tags = contact_data.tags
 
         db.session.commit()
 

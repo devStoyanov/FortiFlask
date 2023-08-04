@@ -51,9 +51,6 @@ user_data = [{"id": " ", "username": " ", "password": " ", "created_at": " "}]
 def add_user():
     data = request.get_json()
 
-    username = data.get("username")
-    password = data.get("password")
-
     # Use of defined schema for User to validate  json request data
     try:
         user = UserData(**data)
@@ -62,15 +59,15 @@ def add_user():
         return (json.dumps(e.errors(), indent=4)), 400
 
     for i in range(len(user_data)):
-        if user_data[i]["username"] == username:
+        if user_data[i]["username"] == user.username:
             return {"message": "User already exist"}, 401
 
     else:
         # Create a new user as a dictionary(new_user)
         new_user = {
             "id": randrange(1, 10),
-            "username": username,
-            "password": password,
+            "username": user.username,
+            "password": user.password,
             "created_at": get_timestamp(),
         }
 
@@ -86,9 +83,6 @@ def add_user():
 def log_in_user():
     data = request.get_json()
 
-    username = data.get("username")
-    password = data.get("password")
-
     try:
         user = UserData(**data)
 
@@ -99,8 +93,7 @@ def log_in_user():
     # if user exist the return message contain access token.
     for i in range(len(user_data)):
         if (
-            username == user_data[i]["username"]
-            and password == user_data[i]["password"]
+            user.username == user_data[i]["username"] and user.password == user_data[i]["password"]
         ):
             print("Username", user_data[i]["username"])
             return {"message": "token: "}, 200
@@ -108,7 +101,7 @@ def log_in_user():
         return {"message": "Invalid username or password"}, 404
 
 
-# Test data in form of a list with dictionaries for swagger documentation.
+# Test data in form of a list of dictionaries for swagger documentation.
 test_data = [
     {
         "id": "",
@@ -119,6 +112,7 @@ test_data = [
         "last_name": "",
         "title": "",
         "email": "",
+        "mobile": "",
         "address": "",
         "description": "",
         "tags": "",
@@ -142,15 +136,6 @@ def contacts():
     # Values with incoming JSON request
     elif request.method == "POST":
         content = request.get_json()
-        is_organization = content.get("is_organization")
-        name = content.get("name")
-        first_name = content.get("first_name")
-        last_name = content.get("last_name")
-        title = content.get("title")
-        email = content.get("email")
-        address = content.get("address")
-        description = content.get("description")
-        tags = content.get("tags")
 
         # User of defined schema for Contacts to validate json request data
         try:
@@ -162,15 +147,16 @@ def contacts():
         new_contact = {
             "id": randrange(1, 10),
             "creator_id": randrange(1, 10),
-            "is_organization": is_organization,
-            "name": name,
-            "first_name": first_name,
-            "last_name": last_name,
-            "title": title,
-            "email": email,
-            "address": address,
-            "description": description,
-            "tags": tags,
+            "is_organization": contact.is_organization,
+            "name": contact.name,
+            "first_name": contact.first_name,
+            "last_name": contact.last_name,
+            "title": contact.title,
+            "email": contact.email,
+            "mobile": contact.mobile,
+            "address": contact.address,
+            "description": contact.description,
+            "tags": contact.tags,
             "created_at": get_timestamp(),
             "updated_at": "null",
         }
@@ -203,34 +189,30 @@ def update_contact(id):
         # contain "id" key with id which is introduced as а parameter
         for i in range(len(test_data)):
             if test_data[i]["id"] == id:
-                is_organization = content.get("is_organization")
-                name = content.get("name")
-                first_name = content.get("first_name")
-                last_name = content.get("last_name")
-                title = content.get("title")
-                email = content.get("email")
-                address = content.get("address")
-                description = content.get("description")
-                tags = content.get("tags")
+                try:
+                    contact = ContactsData(**content)
+                except ValidationError as e:
+                    return (json.dumps(e.errors(), indent=4)), 400
 
                 test_data[i] = {
                     "id": id,
                     "creator_id": test_data[i]["creator_id"],
-                    "is_organization": is_organization,
-                    "name": name,
-                    "first_name": first_name,
-                    "last_name": last_name,
-                    "title": title,
-                    "email": email,
-                    "address": address,
-                    "description": description,
-                    "tags": tags,
+                    "is_organization": contact.is_organization,
+                    "name": contact.name,
+                    "first_name": contact.first_name,
+                    "last_name": contact.last_name,
+                    "title": contact.title,
+                    "email": contact.email,
+                    "mobile": contact.mobile,
+                    "address": contact.address,
+                    "description": contact.description,
+                    "tags": contact.tags,
                     "created_at": test_data[i]["created_at"],
                     "updated_at": get_timestamp(),
                 }
                 return jsonify({"message": "Note updated successfully"}), 200
-            else:
-                return {"message": f"Contact with id {id} not found"}, 404
+        else:
+            return {"message": f"Contact with id {id} not found"}, 404
 
     elif request.method == "DELETE":
         for i in range(len(test_data)):

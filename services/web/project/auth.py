@@ -17,9 +17,6 @@ import datetime
 def create_user():
     data = request.json
     if request.method == "POST":
-        username = data["username"]
-        password = data["password"]
-
         try:
             user_data = UserData(**data)
         except ValidationError as e:
@@ -32,8 +29,10 @@ def create_user():
                 # Check if the username is present in database
                 # if it is not, use the username and password from request.method
                 # to create  a new user
-                if User.query.filter_by(username=username).first() is None:
-                    user = User(username=username, password=password)
+                if User.query.filter_by(username=user_data.username).first() is None:
+                    user = User(
+                        username=user_data.username, password=user_data.password
+                    )
                     db.session.add(user)
                     db.session.commit()
 
@@ -49,9 +48,6 @@ def create_user():
 def login_user():
     data = request.json
     if request.method == "POST":
-        username = data["username"]
-        password = data["password"]
-
         try:
             user_data = UserData(**data)
         except ValidationError as e:
@@ -60,13 +56,15 @@ def login_user():
         error = None
 
         # Check if username and password are present in database
-        user = User.query.filter_by(username=username, password=password).first()
+        user = User.query.filter_by(
+            username=user_data.username, password=user_data.password
+        ).first()
         if user is None:
             error = "Incorrect username or password"
             print(error)
 
         # Take the current (logged in) user and save the user.id in session["user_id"]
-        current_user = User.query.filter_by(username=username).first()
+        current_user = User.query.filter_by(username=user_data.username).first()
         if error is None:
             session["user_id"] = current_user.id
 
