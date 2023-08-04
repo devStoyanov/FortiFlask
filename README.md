@@ -75,11 +75,11 @@ In FortiFlask folder run:
 
 * You can check if the tables are created successfully by running:  
   docker-compose exec -f docker-compose.prod.yml db psql --username=your_postgres_username --dbname=your_postgres_db_name
-* In psql type: 
-  \l to List the databases
+* In psql type:   
+  \l to List the databases  
   \dt to List the tables there should be two tables user and contacts
 
-  If you have permission problems with entrypoint.prod.sh in FortiFlask directory run: 
+  If you have permission problems with entrypoint.prod.sh in FortiFlask directory run:  
   chmod +x services/web/entrypoint.prod.sh
 
 # Documentation
