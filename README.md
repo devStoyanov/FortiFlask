@@ -83,7 +83,7 @@ Before running the app, ensure you have the following installed on your machine:
 
     To remove the volumes along with the containers
 
-        docker-compose down -v  
+        docker-compose -f docker-compose.prod.yml down -v  
 
 
     Then, re-build the images, run the command to create the tables again:  
