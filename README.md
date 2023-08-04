@@ -82,7 +82,7 @@ In FortiFlask folder run:
   docker-compose exec -f docker-compose.prod.yml db psql --username=your_postgres_username --dbname=your_postgres_db_name
 * In psql type:   
   \l "List the databases"  
-  \dt "List the tables, there should be two tables user and contacts"
+  \dt "List the tables, there should be two tables "user" and "contacts""
 
   If you have permission problems with entrypoint.prod.sh in FortiFlask directory run:  
   chmod +x services/web/entrypoint.prod.sh
