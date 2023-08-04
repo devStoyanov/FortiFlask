@@ -6,7 +6,7 @@ Features
 
 Secure JWT token-based authentication
 RESTful APIs for data manipulation
-Data validation using Pydantic
+Data validation using Pydantic,
 Scalable and easily deployable with Docker and Docker Compose
 Nginx as a reverse proxy for improved performance
 WSGI as web server to forward requests to web application
