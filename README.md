@@ -85,24 +85,24 @@ Before running the app, ensure you have the following installed on your machine:
     \dt "List the tables, there should be two tables "user" and "contacts""
 
     If you have permission problems with entrypoint.prod.sh in FortiFlask directory run:  
-    chmod +x services/web/entrypoint.prod.sh
+        chmod +x services/web/entrypoint.prod.sh
 
 # Documentation
 
-    * Swagger documentation is available in http://localhost:1337
+* Swagger documentation is available in http://localhost:1337
 
 
 # Continuous Deployment (CD)
 
-    FortiFlask use GitHub Actions for its CD pipelines. The pipeline is configured to automatically build , push to repository, and deploy the application image to Vm  whenever changes are pushed to the main branch. The CD process includes the following steps:
-    * Generate build id which will be used to tag an image using env variable, GITHUB_SHA.
-    * Login to Docker Hub using docker/login-action@v2 action.
-    * Build, Tag, Push an image to the repository.
-    * Login and Deploy to Vm by using appleboy/ssh-action@master action.
+FortiFlask use GitHub Actions for its CD pipelines. The pipeline is configured to automatically build , push to repository, and deploy the application image to Vm  whenever changes are pushed to the main branch. The CD process includes the following steps:
+* Generate build id which will be used to tag an image using env variable, GITHUB_SHA.
+* Login to Docker Hub using docker/login-action@v2 action.
+* Build, Tag, Push an image to the repository.
+* Login and Deploy to Vm by using appleboy/ssh-action@master action.
 
 # License
 
-    This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 
 
