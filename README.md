@@ -8,7 +8,7 @@ Forti-flask is a RESTful API service that provides several endpoints  for intera
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Documentation](#documentation)
-- [CI/CD](#ci/cd)
+- [ContinuousDeployment(CD)](#continuousdeployment(cd))
 - [License](#license)
 
 
@@ -39,7 +39,8 @@ Before running the app, ensure you have the following installed on your machine:
 
 
 
-* Clone this repository to your local machine
+First clone this repository to your local machine run: 
+git clone https://github.com/devStoyanov/FortiFlask.git
 
 The app is configured to work with .env. files,
 you should provide them by yourself.
@@ -86,9 +87,9 @@ In FortiFlask folder run:
 * Swagger documentation is available in http://localhost:1337
 
 
-# CI/CD
+# Continuous Deployment (CD)
 
-FortiFlask uses GitHub Actions for its CI/CD pipelines. The pipeline is configured to automatically build , push to repository, and deploy the application image to Vm  whenever changes are pushed to the main branch. The CI/CD process includes the following steps:
+FortiFlask use GitHub Actions for its CD pipelines. The pipeline is configured to automatically build , push to repository, and deploy the application image to Vm  whenever changes are pushed to the main branch. The CI/CD process includes the following steps:
 * Generate build id which will be used to tag an image using env variable, GITHUB_SHA
 * Login to Docker Hub using docker/login-action@v2 action with two secrets.
 * Build, Tag, Push an image to the repository
