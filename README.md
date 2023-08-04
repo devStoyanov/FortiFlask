@@ -40,8 +40,9 @@ Before running the app, ensure you have the following installed on your machine:
   You can follow the link for more information on installation process depending on your operating system  
   https://www.postgresql.org/download/
 
-    First clone this repository to your local machine run:   
-    git clone https://github.com/devStoyanov/FortiFlask.git
+    First clone this repository to your local machine run:  
+     
+       git clone https://github.com/devStoyanov/FortiFlask.git
 
     The app is configured to work with .env. files,
     you should provide them by yourself.  
