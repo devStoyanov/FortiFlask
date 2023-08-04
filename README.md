@@ -59,9 +59,9 @@ FLASK_SECRET_KEY=your_secret_key_here
 
 * .env.prod.db content:
 
-POSTGRES_USER=your_postgres_username 
-POSTGRES_PASSWORD=your_postgres_password 
-POSTGRES_DB=your_postgres_db_name 
+POSTGRES_USER=your_postgres_username  
+POSTGRES_PASSWORD=your_postgres_password   
+POSTGRES_DB=your_postgres_db_name  
 
 
 * Start the application using Docker Compose:
