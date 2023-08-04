@@ -4,11 +4,11 @@ Forti-flask is a RESTful API service that provides several endpoints  for intera
 
 Features
 
-Secure JWT token-based authentication
-RESTful APIs for data manipulation
+Secure JWT token-based authentication,
+RESTful APIs for data manipulation,
 Data validation using Pydantic,
-Scalable and easily deployable with Docker and Docker Compose
-Nginx as a reverse proxy for improved performance
+Scalable and easily deployable with Docker and Docker Compose,
+Nginx as a reverse proxy for improved performance,
 WSGI as web server to forward requests to web application
 
 Technologies Used
