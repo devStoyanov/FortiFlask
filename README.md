@@ -68,9 +68,10 @@ Before running the app, ensure you have the following installed on your machine:
 * Start the application using Docker Compose:
     In FortiFlask folder run:  
 
+    This command will build and start application containers in detached mode.
+    
         docker-compose -f docker-compose.prod.yml up -d --build
 
-    This command will build and start application containers in detached mode.
 
 
 * To create the tables in database in FortiFlask directory run:  
