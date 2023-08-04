@@ -60,26 +60,27 @@ Before running the app, ensure you have the following installed on your machine:
 
 * .env.prod.db content:
 
-    POSTGRES_USER=your_postgres_username  
-    POSTGRES_PASSWORD=your_postgres_password   
-    POSTGRES_DB=your_postgres_db_name  
+        POSTGRES_USER=your_postgres_username  
+        POSTGRES_PASSWORD=your_postgres_password   
+        POSTGRES_DB=your_postgres_db_name  
 
 
 * Start the application using Docker Compose:
     In FortiFlask folder run:  
-    docker-compose -f docker-compose.prod.yml up -d --build  
+        docker-compose -f docker-compose.prod.yml up -d --build  
     This command will build and start application containers in detached mode.
 
 
 * To create the tables in database in FortiFlask directory run:  
-    docker-compose -f docker-compose.prod.yml exec web python manage.py create_db  
+        docker-compose -f docker-compose.prod.yml exec web python manage.py create_db  
 
 * FATAL:  database "your_postgres_db_name" does not exist  
-    Run docker-compose down -v to remove the volumes along with the containers. Then, re-build the images, run the command to create the tables again:  
-    docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
+        docker-compose down -v to remove the volumes along with the containers
+    Then, re-build the images, run the command to create the tables again:  
+        docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
   
 * You can check if the tables are created successfully by running:  
-    docker-compose -f docker-compose.prod.yml exec db psql--username=your_postgres_username --dbname=your_postgres_db_name  
+        docker-compose -f docker-compose.prod.yml exec db psql--username=your_postgres_username --dbname=your_postgres_db_name  
 * In psql type:   
     \l "List the databases"  
     \dt "List the tables, there should be two tables "user" and "contacts""
