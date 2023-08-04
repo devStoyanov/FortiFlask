@@ -65,15 +65,15 @@ POSTGRES_DB=your_postgres_db_name
 
 
 * Start the application using Docker Compose:
-In FortiFlask folder run: 
-  docker-compose -f docker-compose.prod.yml up -d --build
+In FortiFlask folder run:  
+  docker-compose -f docker-compose.prod.yml up -d --build  
   This command will build and start application containers in detached mode.
 
 
-* To create the tables in database in FortiFlask directory run:
-  docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
+* To create the tables in database in FortiFlask directory run:  
+  docker-compose -f docker-compose.prod.yml exec web python manage.py create_db  
 
-* You can check if the tables are created successfully by running:
+* You can check if the tables are created successfully by running:  
   docker-compose exec -f docker-compose.prod.yml db psql --username=your_postgres_username --dbname=your_postgres_db_name
 * In psql type: 
   \l to List the databases
