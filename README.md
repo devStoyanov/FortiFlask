@@ -69,7 +69,7 @@ Before running the app, ensure you have the following installed on your machine:
     In FortiFlask folder run:  
 
     This command will build and start application containers in detached mode.
-    
+
         docker-compose -f docker-compose.prod.yml up -d --build
 
 
@@ -80,9 +80,10 @@ Before running the app, ensure you have the following installed on your machine:
 
 * FATAL:  database "your_postgres_db_name" does not exist  
 
+    To remove the volumes along with the containers
+
         docker-compose down -v  
 
-    To remove the volumes along with the containers
 
     Then, re-build the images, run the command to create the tables again:  
 
