@@ -1,8 +1,18 @@
-Overview
+# Overview
 
 Forti-flask is a RESTful API service that provides several endpoints  for interacting with data. It is designed to be secure and utilizes JWT token-based authentication. The app is built with Python and Flask, using Pydantic for data validation, PostgreSQL for the database,  Nginx as a reverse proxy server and WSGI as web servers to forward requests to web application. The entire app is containerized using Docker for easy deployment and scalability.
 
-Features
+## Table of Contents
+
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Documentation](#documentation)
+- [License](#license)
+- [CI/CD](#ci/cd)
+
+
+# Features
 
 Secure JWT token-based authentication,
 RESTful APIs for data manipulation,
@@ -11,7 +21,7 @@ Scalable and easily deployable with Docker and Docker Compose,
 Nginx as a reverse proxy for improved performance,
 WSGI as web server to forward requests to web application
 
-Technologies Used
+# Technologies
 Python
 Flask
 Pydantic
@@ -21,8 +31,8 @@ WSGI
 Docker
 Docker Compose
 
-Getting Started
-Prerequisites
+# Installation
+
 Before running the app, ensure you have the following installed on your machine:
 
 Docker
@@ -69,12 +79,12 @@ type \dt to List the tables there should be two tables user and contacts
 
 If you have permission problems with entrypoint.prod.sh in FortiFlask directory run: chmod +x services/web/entrypoint.prod.sh
 
-API Documentation
+# Documentation
 
 Swagger documentation is available in http://localhost:1337
 
 
-Continuous Integration and Continuous Deployment (CI/CD)
+# CI/CD
 
 FortiFlask uses GitHub Actions for its CI/CD pipelines. The pipelines are configured to automatically build, push to repository, and deploy the application image  whenever changes are pushed to the main branch. The CI/CD process includes the following steps:
 Generate build id for the image using env variable, GITHUB_SHA
