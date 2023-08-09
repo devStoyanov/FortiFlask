@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    build:  
+    build:
       context: ./services/web
       dockerfile: Dockerfile.prod
     command: gunicorn --bind 0.0.0.0:5000 manage:app
@@ -12,7 +12,7 @@ services:
       - ./.env.prod
     depends_on:
       - db
-  db: 
+  db:
     image: postgres:13
     volumes:
       - postgres_data:/var/lib/postgresql/data/
