@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -
+        name: Test 
+        run: |
+          docker-compose -f docker-compose.prod.yml web pytest
+      -
         name: Generate Tag
         id: prep
         run: |

@@ -7,8 +7,8 @@ db = SQLAlchemy()
 
 
 # Use to initialize the database.
-def init_db(app):
-    db.init_app(app)
+# def init_db(app):
+#     db.init_app(app)
 
 
 class User(db.Model):
@@ -33,7 +33,7 @@ class Contacts(db.Model):
     title = db.Column(db.String(50), default=None, nullable=True)
     email = db.Column(db.String(50), default=None, nullable=True)
     mobile = db.Column(db.Integer, default=None, nullable=True)
-    address = db.Column(JSONB)
+    address = db.Column(db.String(100), default=None, nullable=True)
     description = db.Column(db.String(200), default=None, nullable=True)
     tags = db.Column(db.String(50), default=None, nullable=True)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
